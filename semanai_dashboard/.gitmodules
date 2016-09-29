@@ -1,0 +1,3 @@
+[submodule "semani"]
+	path = semani
+	url = https://github.com/pehcao/semani
