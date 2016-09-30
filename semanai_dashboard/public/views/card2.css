@@ -1,0 +1,21 @@
+.bindThing {
+    width: 35.8%;
+    height: 10%;
+}
+
+.goRight{
+    float: right;
+    margin-top: 2%;
+}
+
+.goLeft{
+    float:left;
+}
+
+.pushDown{
+    margin-bottom: 2%;
+}
+
+.pushTop{
+    margin-top: 2%;
+}

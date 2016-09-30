@@ -1,16 +1,37 @@
+
+<link rel="stylesheet" type="text/css" href="../views/card2.css">
+<script src="../scripts/controller2.js"></script>
+
 <px-card header-text='Menu 2'>
     <h3>Select engine: </h3>
-    <px-dropdown display-value="Elige número de vuelo">
-        <px-dropdown-content class="px-dropdown-content" extend-dropdown="true" extend-dropdown-by="25" max-cont-character-width="10" items='[{"key":"58171", "val": "58171"}, {"key":"58172", "val": "58172"}, {"key":"58173", "val": "58173"}, {"key":"58174", "val": "58174"}]'>
-        </px-dropdown-content>
-    </px-dropdown>
-
-    <px-simple-bar-chart
-        width='800'
-        height='300'
-        legend-labels='["Lorem"]'
-        colors='["#5dbc3e"]'
-        chart-data="[[20,32,44,56,68,80]]"
-    ><px-simple-bar-chart>
+    <section class="bindThing">
+        Engine number: <input type="number" id="fname">
+        <input type="button" onclick="myFunction()" value="Submit"><br><br>
+        <px-dropdown id= "ddlist" display-value="Choose engine number" class="bindThing">
+            <px-dropdown-content id= "ddcont" class="px-dropdown-content" extend-dropdown="true" extend-dropdown-by="25" items= "{{data}}">
+            </px-dropdown-content>
+        </px-dropdown>
+    </section>
+    <table border="0">
+        <h4>Engine: {{all.motorid}}</h4>
+        <td style="width: 50%">
+        <px-simple-bar-chart
+            width='400'
+            height='300'
+            legend-labels='["Current flights", "Max Flights"]'
+            colors='["#5dbc3e", "#4d4d4d"]'
+            chart-data={{dets}}>
+            </px-simple-bar-chart>
+        </td>
+        <td style="width: 50%">
+            <li class="goLeft">Hours above 263°:   {{all.cumulativehours}}</li><br>
+            <li class="goLeft">Route #:   {{all.route}}</li><br>
+            <li class="goLeft">Current flight #: {{all.currentflight}}</li><br>
+            <li class="goLeft">Failure flight #: {{all.totalflights}}</li><br>
+            <li class="goLeft">Recommended repair airport: {{all.airport}}</li><br>
+        </td>
+        </table>
+    <h2 color="green">Optimal revenue: ${{cost.optimal}}</h2>
+    <h3 color="red">Full lifetime revenue: ${{cost.subopt}}</h3>
 </px-card>
 
